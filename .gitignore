@@ -18,6 +18,10 @@
 .env.test.local
 .env.production.local
 
+# Ignore Aman's working folder
+/InStock Assets
+
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
