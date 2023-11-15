@@ -202,3 +202,66 @@
     }
   }
 }
+
+body.active--modal {
+  display: none;
+}
+.delete--button {
+  border: none;
+  background-color: white;
+}
+.modal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  .img--container {
+    text-align: right;
+  }
+  .exit--button {
+    border: none;
+  }
+  .overlay {
+    @include tablet {
+    background: rgb(34, 40, 63, 0.1);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    }
+  }
+  .modal--content {
+    @include tablet {
+      position: absolute;
+      top: 11.5rem;
+      left: 4.5rem;
+      line-height: 1.4;
+      background: #f1f1f1;
+      padding: 1rem 1rem 0 5rem;
+      border-radius: 3px;
+      width: 42rem;
+      height: 16rem;
+    }
+    @include mobile {
+      height: 100vw;
+      width: 100vw;
+      background: white;
+    }
+  }
+  .modal__header {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    width: 27.125rem;
+  }
+  .modal__text {
+    font-size: 1rem;
+    line-height: 28px;
+    width: 34rem;
+  }
+}
