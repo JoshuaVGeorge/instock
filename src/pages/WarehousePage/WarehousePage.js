@@ -28,7 +28,7 @@ function WarehousePage() {
 	};
 	const navigate = useNavigate();
 	const apiURL = "http://localhost:8080/api/warehouses/";
-
+	const apiSortURL = "http://localhost:8080/api/warehouses/warehouse_ascending/";
 	const [wareData, setWareData] = useState();
 
 	const updatePage = () => {
@@ -37,8 +37,24 @@ function WarehousePage() {
 		});
 	};
 
+
+	const sortElements = (e) => {
+		axios
+			.get(apiSortURL + e.target.value, {
+				params: {
+				warehouse: 'warehouse',
+				address: 'address',
+				contactName: 'contact name',
+				contactInformation: 'contact'
+				}
+			})
+			.then((res) => {
+				console.log(res.data);
+			});
+	}
+
+
 	const deleteWarehouse = (id) => {
-		console.log(id);
 		axios
 			.delete(apiURL + id)
 			.then(() => {
@@ -88,7 +104,7 @@ function WarehousePage() {
 
 				<section className="warehouseList">
 					<div className="warehouseList__label one">
-						<p className="warehouseList__name">warehouse</p>
+						<p onClick={sortElements} className="warehouseList__name">warehouse</p>
 						<img
 							className="warehouseList__icon"
 							src={doubleArrow}
